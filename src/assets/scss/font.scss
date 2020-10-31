@@ -1,0 +1,25 @@
+$fonts: (
+  'GothamPro': '~@/assets/fonts/GothamPro.ttf',
+  'GothamPro-Black': '~@/assets/fonts/GothamPro-Black.ttf',
+  'GothamPro-BoldItalic': '~@/assets/fonts/GothamPro-BoldItalic.ttf',
+  'GothamPro-Italic': '~@/assets/fonts/GothamPro-Italic.ttf',
+  'GothamPro-Light': '~@/assets/fonts/GothamPro-Light.ttf',
+  'GothamPro-LightItalic': '~@/assets/fonts/GothamPro-LightItalic.ttf',
+  'GothamPro-Medium': '~@/assets/fonts/GothamPro-Medium.ttf',
+  'GothamPro-MediumItalic': '~@/assets/fonts/GothamPro-MediumItalic.ttf',
+  'GothamProNarrow-Bold': '~@/assets/fonts/GothamProNarrow-Bold.ttf',
+  'GothamProNarrow-Medium': '~@/assets/fonts/GothamProNarrow-Medium.ttf',
+);
+
+@each $font, $url in $fonts {
+  @font-face {
+    font-family: '#{$font}';
+    src: url('#{$url}');
+  }
+}
+
+@mixin setFont($fontName: 'GothamPro', $size: 1rem, $weigh: normal) {
+  font-family: #{$fontName};
+  font-size: $size;
+  font-weight: $weigh;
+}

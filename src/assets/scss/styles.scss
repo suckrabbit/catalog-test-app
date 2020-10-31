@@ -1,0 +1,90 @@
+.app {
+  background: $bg_color;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  .main {
+    width: 100%;
+    min-height: 100%;
+    background: $bg_main_color;
+    border: 5px solid $white-color;
+    border-radius: 10px;
+    padding: 40px;
+    color: $text_color;
+    @include setFont("GothamPro");
+    .catalog-list {
+      width: 100%;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 270px);
+      grid-gap: 32px;
+      justify-content: space-between;
+    }
+  }
+  .container {
+    padding: 10px;
+  }
+  .title {
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+@media (min-width: 575.98px) {
+  .app {
+    padding: 0;
+    .container {
+      padding: 10px calc(50vw - 270px);
+    }
+    .main {
+      border-width: 10px;
+    }
+  }
+}
+
+@media (min-width: 767.98px) {
+  .app {
+    padding: 10px;
+    .contaner {
+      padding: 10px calc(50vw - 360px);
+    }
+    .main {
+      border-width: 15px;
+    }
+  }
+}
+
+@media (min-width: 991.98px) {
+  .app {
+    padding: 30px;
+    .container {
+      padding: 18px calc(50vw - 480px);
+    }
+    .main {
+      border-width: 20px;
+    }
+  }
+}
+
+@media (min-width: 1199.98px) {
+  .app {
+    padding: 60px;
+    .container {
+      padding: 28px calc(50vw - 660px);
+    }
+    .main {
+      border-width: 25px;
+    }
+  }
+}
+
+@media (min-width: 1919.98px) {
+  .app {
+    padding: 80px;
+    .container {
+      padding: 38px calc(50vw - 720px);
+    }
+    .main {
+      border-width: 30px;
+    }
+  }
+}

@@ -1,27 +1,42 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div class="app">
+    <main class="main container">
+      <h1 class="title">Lorem ipsum dolor sit</h1>
+      <CatalogFilters />
+      <ul class="catalog-list">
+        <CatalogCardItem v-for="item in catalog" :key="item.id" :item="item" />
+      </ul>
+    </main>
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import { computed, defineComponent, ref } from 'vue';
+import { useStore } from 'vuex';
+
+import CatalogCardItem from '@/components/CatalogCardItem.vue';
+import CatalogFilters from '@/components/CatalogFilters.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
-    HelloWorld,
+    CatalogCardItem,
+    CatalogFilters,
+  },
+  setup() {
+    const { getters, dispatch } = useStore();
+    dispatch('getCatalog');
+
+    const catalog = computed(() => getters.catalog);
+
+    const sliderValues = ref<number[]>([0, 10]);
+    const chechBoxValue = ref(false);
+    return { sliderValues, chechBoxValue, catalog };
   },
 });
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import "~@/assets/scss/normalize.scss";
+@import "~@/assets/scss/styles.scss";
 </style>
